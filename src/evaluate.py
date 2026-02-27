@@ -22,6 +22,9 @@ def main():
 
     acc = accuracy_score(y_test, preds)
     print(f"✅ Accuracy: {acc:.4f}")
+    
+    if acc < 0.9:
+    raise ValueError("Accuracy too low!")
 
 if __name__ == "__main__":
     main()
