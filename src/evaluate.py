@@ -23,8 +23,15 @@ def main():
     acc = accuracy_score(y_test, preds)
     print(f"✅ Accuracy: {acc:.4f}")
     
-    if acc < 0.9:
-         raise ValueError("Accuracy too low!")
+    # Quality gate
+    threshold = 0.90
+    if acc < threshold:
+        raise ValueError(
+            f"Accuracy too low: {acc:.4f} < {threshold}"
+        )
+
+    print("🎉 Evaluation passed.")
+
 
 if __name__ == "__main__":
     main()
